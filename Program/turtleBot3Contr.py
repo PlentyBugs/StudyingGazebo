@@ -17,15 +17,15 @@ def talker():
 
 def callback(msg):
 	print("=========================") #From 0 to 359
-	print('Front: ' + msg.ranges(0))
-	print('Left: ' + msg.ranges(90))
-	print('Back: ' + msg.ranges(180))
-	print('Right: ' + msg.ranges(270))
+	print('Front: ', msg.ranges[0])
+	print('Left: ', msg.ranges[90])
+	print('Back: ', msg.ranges[180])
+	print('Right: ', msg.ranges[270])
 
 
 if __name__ == '__main__':
 	try:
-		rospy.init_node('laser_data')
+		rospy.init_node('turtleBot3Contr')
 		sub = rospy.Subscriber('scan', LaserScan, callback)
 		#rospy.spin()
 		talker()
