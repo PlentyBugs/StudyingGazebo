@@ -5,10 +5,10 @@ from geometry_msgs.msg import Twist
 class WrumWrumWasUberPodiehal():
 	def __init__(self):	
 		rospy.init_node('ObstacleAvoidance', anonymous=True)
-		rospy.on_shutdown(self.shutdown)
 		self.sub = rospy.Subscriber('/scan', LaserScan, callback)
 		self.cmd_vel = rospy.Publisher('/cmd_vel', Twist)
 		move_cmd = Twist()
+		rospy.on_shutdown(self.shutdown)
 		r = rospy.Rate(10);
 
 		while not rospy.is_shutdown():
