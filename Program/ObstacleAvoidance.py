@@ -24,4 +24,5 @@ sub = rospy.Subscriber('/scan', LaserScan, callback)
 pub = rospy.Publisher('/cmd_vel', Twist)
 move = Twist()
 
-rospy.spin()
+while not rospy.is_shutdown():
+	rospy.spin()
