@@ -32,7 +32,7 @@ class WrumWrumWasUberPodiehal():
 			r.sleep()
 
 	def callback(self, msg):
-		print(1)
+		print(type(msg))
 
 	def shutdown(self):
 		rospy.loginfo("Stop TurtleBot")
