@@ -8,7 +8,7 @@ def callback(msg):
 	print('Front: ', msg.ranges[0])
 	print('Left: ', msg.ranges[90])
 
-	rospy.on_shutdown(shutdown())
+	rospy.on_shutdown(shutdown)
 
 	if(msg.ranges[0] > 0.5):
 		move.linear.x = 0.5
