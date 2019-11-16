@@ -38,5 +38,6 @@ class WrumWrumWasUberPodiehal():
 if __name__ == '__main__':
     try:
         WrumWrumWasUberPodiehal()
-    except:
-        rospy.loginfo("GoForward node terminated.")
+    except Exception, e:
+        rospy.loginfo("WrumWrumWasUberPodiehal node terminated.")
+        rospy.loginfo(str(e))
