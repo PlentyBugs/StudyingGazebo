@@ -1,11 +1,10 @@
 import rospy
 from sensor_msgs.msg import LaserScan
 from geometry_msgs.msg import Twist
+import time
 
 class WrumWrumWasUberPodiehal():
 
-	msg = LaserScan()
-	
 	def __init__(self):	
 		rospy.init_node('ObstacleAvoidance', anonymous=False)
 		self.sub = rospy.Subscriber('/scan', LaserScan, self.callback)
@@ -14,6 +13,7 @@ class WrumWrumWasUberPodiehal():
 
 		move_cmd = Twist()
 		r = rospy.Rate(10);
+		time.sleep(2)
 		while not rospy.is_shutdown():
 			print(2)
 
