@@ -6,7 +6,6 @@ def stop():
 	rospy.init_node('stop')
 	pub = rospy.Publisher('cmd_vel', Twist, queue_size=1)
 	move = Twist()
-	rate = rospy.Rate(1)
 	move.linear.x = 0
 	move.linear.y = 0
 	move.linear.z = 0
