@@ -19,5 +19,6 @@ def stop():
 if __name__ == '__main__':
 	try:
 		stop()
+		rospy.spin()
 	except rospy.ROSInterruptException:
 		pass
