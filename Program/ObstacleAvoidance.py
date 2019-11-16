@@ -12,24 +12,24 @@ class WrumWrumWasUberPodiehal():
 
 		move_cmd = Twist()
 		r = rospy.Rate(10)
-		if (self.msg != None)
-		while not rospy.is_shutdown():
-			print('===============')
-			print('Right: ', self.msg.ranges[270])
-			print('Front: ', self.msg.ranges[0])
-			print('Left: ', self.msg.ranges[90])
-			print('Back: ', self.msg.ranges[180])
-			print('VelX: ', move_cmd.linear.x)
+		if (self.msg != None):
+			while not rospy.is_shutdown():
+				print('===============')
+				print('Right: ', self.msg.ranges[270])
+				print('Front: ', self.msg.ranges[0])
+				print('Left: ', self.msg.ranges[90])
+				print('Back: ', self.msg.ranges[180])
+				print('VelX: ', move_cmd.linear.x)
 
-			if(self.msg.ranges[0] > 0.5):
-				move_cmd.linear.x = 0.5
-				move_cmd.angular.z = 0.0
-			else:
-				move_cmd.linear.x = 0.0
-				move_cmd.angular.z = 0.5
+				if(self.msg.ranges[0] > 0.5):
+					move_cmd.linear.x = 0.5
+					move_cmd.angular.z = 0.0
+				else:
+					move_cmd.linear.x = 0.0
+					move_cmd.angular.z = 0.5
 
-			self.cmd_vel.publish(move_cmd)
-			r.sleep()
+				self.cmd_vel.publish(move_cmd)
+				r.sleep()
 
 	def callback(self, msg):
 		self.msg = msg
