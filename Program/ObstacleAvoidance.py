@@ -9,10 +9,10 @@ class WrumWrumWasUberPodiehal():
 		self.cmd_vel = rospy.Publisher('/cmd_vel', Twist, queue_size = 10)
 		rospy.on_shutdown(self.shutdown)
 
-	def callback(self, msg):
 		move_cmd = Twist()
 		r = rospy.Rate(10);
 		while not rospy.is_shutdown():
+			print(2)
 
 			print('===============')
 			print('Right: ', msg.ranges[270])
@@ -30,6 +30,9 @@ class WrumWrumWasUberPodiehal():
 
 			self.cmd_vel.publish(move_cmd)
 			r.sleep()
+
+	def callback(self, msg):
+		print(1)
 
 	def shutdown(self):
 		rospy.loginfo("Stop TurtleBot")
