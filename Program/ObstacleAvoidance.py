@@ -4,9 +4,9 @@ from geometry_msgs.msg import Twist
 
 class WrumWrumWasUberPodiehal():
 	def __init__(self):	
-		rospy.init_node('ObstacleAvoidance', anonymous=True)
+		rospy.init_node('ObstacleAvoidance', anonymous=False)
 		self.sub = rospy.Subscriber('/scan', LaserScan, self.callback)
-		self.cmd_vel = rospy.Publisher('/cmd_vel', Twist)
+		self.cmd_vel = rospy.Publisher('/cmd_vel', Twist, queue_size = 10)
 		rospy.on_shutdown(self.shutdown)
 
 	def callback(self, msg):
@@ -19,6 +19,7 @@ class WrumWrumWasUberPodiehal():
 			print('Front: ', msg.ranges[0])
 			print('Left: ', msg.ranges[90])
 			print('Back: ', msg.ranges[180])
+			print('VelX: ', move_cmd.linear.x)
 
 			if(msg.ranges[0] > 0.5):
 				move_cmd.linear.x = 0.5
