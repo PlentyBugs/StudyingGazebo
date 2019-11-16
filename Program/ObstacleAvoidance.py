@@ -12,7 +12,7 @@ class WrumWrumWasUberPodiehal():
 
 		move_cmd = Twist()
 		r = rospy.Rate(10)
-		if (self.msg != null):
+		if (self.msg not is null):
 			while not rospy.is_shutdown():
 				print('===============')
 				print('Right: ', self.msg.ranges[270])
