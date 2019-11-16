@@ -21,13 +21,13 @@ class WrumWrumWasUberPodiehal():
 			print('Back: ', msg.ranges[180])
 
 			if(msg.ranges[0] > 0.5):
-				move.linear.x = 0.5
-				move.angular.z = 0.0
+				move_cmd.linear.x = 0.5
+				move_cmd.angular.z = 0.0
 			else:
-				move.linear.x = 0.0
-				move.angular.z = 0.0
+				move_cmd.linear.x = 0.0
+				move_cmd.angular.z = 0.0
 
-			pub.publish(move)
+			pub.publish(move_cmd)
 			self.cmd_vel.publish(move_cmd)
 			r.sleep()
 
