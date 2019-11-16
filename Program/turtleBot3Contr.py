@@ -4,7 +4,6 @@ from sensor_msgs.msg import LaserScan
 
 
 def talker():
-	rospy.init_node('vel_publisher')
 	pub = rospy.Publisher('cmd_vel', Twist, queue_size=10)
 	move = Twist()
 	rate = rospy.Rate(1)
