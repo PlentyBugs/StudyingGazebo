@@ -27,7 +27,6 @@ class WrumWrumWasUberPodiehal():
 				move_cmd.linear.x = 0.0
 				move_cmd.angular.z = 0.0
 
-			pub.publish(move_cmd)
 			self.cmd_vel.publish(move_cmd)
 			r.sleep()
 
