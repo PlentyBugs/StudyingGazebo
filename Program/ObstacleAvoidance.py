@@ -9,7 +9,7 @@ class WrumWrumWasUberPodiehal():
 		self.cmd_vel = rospy.Publisher('/cmd_vel', Twist)
 		rospy.on_shutdown(self.shutdown)
 
-	def callback():
+	def callback(self, msg):
 		move_cmd = Twist()
 		r = rospy.Rate(10);
 		while not rospy.is_shutdown():
