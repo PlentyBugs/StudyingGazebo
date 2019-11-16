@@ -4,7 +4,7 @@ from geometry_msgs.msg import Twist
 
 def stop():
 	rospy.init_node('stop')
-	pub = rospy.Publisher('cmd_vel', Twist, queue_size=10)
+	pub = rospy.Publisher('cmd_vel', Twist, queue_size=1)
 	move = Twist()
 	rate = rospy.Rate(1)
 	move.linear.x = 0
