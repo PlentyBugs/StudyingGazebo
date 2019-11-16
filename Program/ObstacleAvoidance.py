@@ -15,13 +15,13 @@ class WrumWrumWasUberPodiehal():
 			print(2)
 
 			print('===============')
-			print('Right: ', msg.ranges[270])
-			print('Front: ', msg.ranges[0])
-			print('Left: ', msg.ranges[90])
-			print('Back: ', msg.ranges[180])
+			print('Right: ', self.msg.ranges[270])
+			print('Front: ', self.msg.ranges[0])
+			print('Left: ', self.msg.ranges[90])
+			print('Back: ', self.msg.ranges[180])
 			print('VelX: ', move_cmd.linear.x)
 
-			if(msg.ranges[0] > 0.5):
+			if(self.msg.ranges[0] > 0.5):
 				move_cmd.linear.x = 0.5
 				move_cmd.angular.z = 0.0
 			else:
@@ -32,7 +32,7 @@ class WrumWrumWasUberPodiehal():
 			r.sleep()
 
 	def callback(self, msg):
-		print(type(msg))
+		self.msg = msg
 
 	def shutdown(self):
 		rospy.loginfo("Stop TurtleBot")
