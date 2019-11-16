@@ -25,7 +25,5 @@ if __name__ == '__main__':
 	try:
 		stop()
 		print(7)
-		rospy.spin()
-		print(8)
 	except rospy.ROSInterruptException:
 		pass
