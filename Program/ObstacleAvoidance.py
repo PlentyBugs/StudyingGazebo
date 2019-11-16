@@ -22,12 +22,12 @@ class WrumWrumWasUberPodiehal():
 			print('Back: ', self.msg.ranges[180])
 			print('VelX: ', move_cmd.linear.x)
 
-			if(self.msg.ranges[0] > 0.5):
+			if(self.msg.ranges[0] > 1):
 				move_cmd.linear.x = 0.5
 				move_cmd.angular.z = 0.0
 			else:
-				move_cmd.linear.x = 0.0
-				move_cmd.angular.z = 0.5
+				move_cmd.linear.x = -0.1
+				move_cmd.angular.z = 1
 
 			self.cmd_vel.publish(move_cmd)
 			r.sleep()
